@@ -1,11 +1,10 @@
-#Приветствие с игрком
+#Greeting with player
 from art import tprint
 from tabulate import TableFormat, tabulate
-from colorama import init
 
 tprint("StaNDRu")
-print('Здравствуй, дорогой друг! Разработчик приветствует тебя в игре StaNDru. Тебе предстоит управлять Россией 16 века.')
-#Объяснение правил 
+print('Hello, my friend! Developer glad to see you.This is StaNDRu, game about Russia in 16th century.')
+#Discribing Rules of game
 print("Ты будешь принимать различные решения, которые будут по разному влиять на гос-во")
 print("Тебе даны ресурсы в виде таблицы:")
 restable = [["Пища",8000],["Железо", 8000],["Дерево", 8000],["Люди",8000],["Целковые",8000]]
@@ -13,10 +12,11 @@ rets = tabulate(restable)
 print(tabulate(restable))
 print("Каждое решение будет иметь своё последствие.")
 answer = input("Давай начнём?")
-
+#Start of game
 if answer == "Давай":
     print(rets)
     deseat= input("Царь, в стране голодают люди. Выделить пищу из запасов Царского двора?\n Да - потратьте 500 пищи/Нет - умрёт 500 человек\n")
+    #Good way 
     if deseat == "Да":
         restable[0] = ["Пища",7500]
         print("Вы приняли верное решение. Народ вам благодарен. Пища -500, Целковые + 500")
@@ -28,6 +28,7 @@ if answer == "Давай":
             restable[1] = ["Железо", 8000-50]
             print("Спасибо, царь мы вам благодарны!")
             print(rets)
+    #Bad way
     if deseat == "Нет":
         restable[3] = ["Люди", 7500]
         print("К сожалению, множесство людей погибло! -500 человек.\n В стране бунты")
